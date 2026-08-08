@@ -1,0 +1,20 @@
+import { RouterProvider } from "react-router-dom";
+import { LanguageProvider } from "@context/LanguageContext";
+import { SettingsProvider } from "@context/SettingsContext";
+import { CasesProvider } from "@context/CasesContext";
+import { AuthProvider } from "@context/AuthContext";
+import { router } from "@/router";
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <SettingsProvider>
+        <CasesProvider>
+          <AuthProvider>
+            <RouterProvider router={router} />
+          </AuthProvider>
+        </CasesProvider>
+      </SettingsProvider>
+    </LanguageProvider>
+  );
+}

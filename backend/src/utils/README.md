@@ -1,0 +1,1 @@
+Shared backend utilities live here. ApiError.ts is a typed HTTP error class; asyncHandler.ts wraps async route handlers so thrown/rejected errors reach errorHandler.ts instead of crashing the process.

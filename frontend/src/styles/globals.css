@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   DOSSIER — Global Theme Layer
+   Luxury Detective UI: dark, cinematic, glassmorphic. No cartoon energy.
+   ========================================================================== */
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-text font-body;
+    /* Matte black base with two soft, subtle gradient layers for depth —
+       a warm red glow from the top, and a faint cool lift from below. */
+    background-image:
+      radial-gradient(120% 120% at 50% 0%, rgba(139, 0, 0, 0.07) 0%, rgba(9, 9, 9, 0) 55%),
+      radial-gradient(100% 60% at 50% 100%, rgba(255, 255, 255, 0.02) 0%, rgba(9, 9, 9, 0) 60%);
+    background-attachment: fixed;
+    min-height: 100dvh;
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  /* Respect reduced-motion preferences across the whole app */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Visible keyboard focus, styled to match the theme rather than removed */
+  :focus-visible {
+    outline: 2px solid theme("colors.primary.light");
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Core glass surface used by cards, modals, sheets.
+     Liquid-glass treatment: blur + saturate (the "frosted" iOS quality)
+     plus a soft top sheen for depth, on top of the existing tint/border. */
+  .glass-panel {
+    @apply bg-card/60 bg-card-sheen border border-border/60;
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.05),
+      0 0 0 1px rgba(255, 255, 255, 0.04),
+      0 8px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .glass-panel-elevated {
+    @apply bg-card/70 bg-card-sheen border border-border-light/60 shadow-glass-highlight;
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+  }
+
+  /* The floating bottom nav specifically — a touch brighter/more "liquid"
+     than a regular panel, since it's meant to read as a physical dock.
+     rgba values here are the theme's card/border-light tokens (#141414,
+     #3A3A3A) inlined directly — a color-mix()+theme() version of this
+     rule was silently dropped by the build (a Tailwind v3 JIT quirk with
+     this specific combination), so plain rgba sidesteps it entirely. */
+  .liquid-glass-dock {
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 30%);
+    background-color: rgba(20, 20, 20, 0.58);
+    border: 1px solid rgba(58, 58, 58, 0.7);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.09),
+      0 16px 40px 0 rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+  }
+
+  /* Thin red accent line — used for active states, dividers with meaning */
+  .accent-underline {
+    @apply relative;
+  }
+  .accent-underline::after {
+    content: "";
+    @apply absolute -bottom-1 left-0 right-0 h-[2px] bg-primary rounded-full shadow-accent-glow;
+  }
+
+  /* Case-file style label (small caps-esque eyebrow text for section labels) */
+  .file-label {
+    @apply font-mono text-[11px] tracking-[0.18em] uppercase text-text-secondary;
+  }
+
+  /* Metallic logotype treatment — subtle silver sheen + soft red underglow.
+     Colors are derived from theme tokens (via theme()/color-mix), never hardcoded. */
+  .metallic-logo {
+    background: linear-gradient(
+      180deg,
+      theme("colors.text.DEFAULT") 0%,
+      theme("colors.text.secondary") 55%,
+      theme("colors.text.DEFAULT") 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(
+      0 0 20px color-mix(in srgb, theme("colors.primary.DEFAULT") 45%, transparent)
+    );
+  }
+
+  /* Premium skeleton block — soft shimmer, matches glass surfaces so it
+     reads as "the card is still forming" rather than a generic gray box.
+     rgba(20,20,20,0.7) is the theme's card token, inlined for the same
+     reason as liquid-glass-dock above. */
+  .skeleton-block {
+    @apply animate-shimmer rounded-2xl bg-card-sheen border border-border/40;
+    background-color: rgba(20, 20, 20, 0.7);
+  }
+
+  /* Soft spotlight behind a key moment (a handoff name, a killer reveal).
+     Purely a background glow — never a hard edge, never flashy. Apply to
+     a `relative` wrapper around the content it should sit behind.
+     Fixed-px bleed (not percentage) on purpose: a percentage inset
+     resolves against this wrapper's own box, so on a wide wrapper (e.g.
+     the Ending screen's full-width killer-reveal header) a -20% horizontal
+     inset bled the glow ~70px past each edge — 56px wider than the
+     viewport itself — which forced real horizontal page overflow and
+     broke the whole screen's layout (bottom nav pushed off-screen,
+     page appearing "zoomed"). A fixed bleed stays small and constant
+     regardless of the wrapped content's width. */
+  .spotlight-glow {
+    @apply relative;
+  }
+  .spotlight-glow::before {
+    content: "";
+    @apply pointer-events-none absolute -z-10;
+    inset: -24px -32px;
+    background: radial-gradient(55% 55% at 50% 40%, rgba(139, 0, 0, 0.16) 0%, rgba(9, 9, 9, 0) 72%);
+  }
+
+  /* Themed <input type="range"> used by Settings' Music Volume slider.
+     Track/thumb pseudo-elements aren't reachable with plain Tailwind
+     utility classes, so they're defined once here rather than inline. */
+  .dossier-slider {
+    @apply h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/10;
+  }
+  .dossier-slider::-webkit-slider-thumb {
+    @apply h-4 w-4 appearance-none rounded-full border-0 bg-primary-light shadow-accent-glow;
+    margin-top: 0;
+  }
+  .dossier-slider::-moz-range-thumb {
+    @apply h-4 w-4 rounded-full border-0 bg-primary-light shadow-accent-glow;
+  }
+  .dossier-slider::-moz-range-track {
+    @apply h-1.5 rounded-full bg-white/10;
+  }
+}
+
+/* ==========================================================================
+   RTL / LTR direction handling
+   Arabic (ar) = rtl by default. English (en) flips to ltr.
+   Use logical properties in components (ms-/me-, ps-/pe-) instead of
+   left/right utilities wherever layout depends on direction.
+   ========================================================================== */
+html[dir="rtl"] body {
+  font-family: "Tajawal", "Inter", sans-serif;
+}
+html[dir="ltr"] body {
+  font-family: "Inter", "Tajawal", sans-serif;
+}

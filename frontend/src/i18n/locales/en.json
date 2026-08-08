@@ -1,0 +1,203 @@
+{
+  "app": {
+    "name": "DOSSIER"
+  },
+  "nav": {
+    "cases": "Cases",
+    "howToPlay": "How To Play",
+    "settings": "Settings",
+    "about": "About"
+  },
+  "common": {
+    "loading": "Loading...",
+    "language": "Language",
+    "arabic": "Arabic",
+    "english": "English",
+    "comingSoon": "Coming soon",
+    "back": "Back",
+    "retry": "Retry",
+    "offlineBanner": "You're offline — showing saved cases",
+    "startInvestigation": "Start Investigation"
+  },
+  "badges": {
+    "case": "Case No.",
+    "players": "players",
+    "minutesShort": "min",
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    }
+  },
+  "home": {
+    "subtitle": "Open a File. Find the Truth.",
+    "sectionEyebrow": "The Archive",
+    "sectionTitle": "Available Cases",
+    "randomCase": {
+      "title": "Random Case",
+      "description": "Let fate choose your next file",
+      "empty": "No cases are available yet.",
+      "error": "Something went wrong and cases aren't available right now. Try again."
+    }
+  },
+  "caseDetails": {
+    "category": "Investigation Type",
+    "story": "The Story",
+    "caseFileLabel": "Case File",
+    "mission": "Your Mission",
+    "warning": "Content Notice",
+    "notFound": "This file could not be found"
+  },
+  "choosePlayers": {
+    "title": "Choose Players",
+    "subtitle": "Who's joining this investigation?",
+    "playerCountLabel": "Number of Players",
+    "playerLabel": "Player {{n}}",
+    "defaultName": "Player {{n}}",
+    "nameFieldLabel": "Name",
+    "namePlaceholder": "Enter name",
+    "validationMessage": "Please enter a name for every player to continue",
+    "continueButton": "Continue"
+  },
+  "roleDistribution": {
+    "handoffTitle": "Pass the phone to",
+    "handoffSubtitle": "Make sure no one else is looking at the screen.",
+    "readyButton": "I'm Ready",
+    "finishedButton": "I'm Done",
+    "characterRoleLabel": "Character",
+    "relationshipToVictim": "Your Relationship to the Victim",
+    "whyAtScene": "Why You Were There",
+    "knownInfo": "What You Know",
+    "secret": "A Secret You're Hiding",
+    "killerTitle": "You are the Killer",
+    "killerWarning": "Keep this secret until the end. Don't let anyone else find out.",
+    "confirmationMessage": "All players have received their roles.",
+    "missingSetup": "Player setup hasn't been completed yet"
+  },
+  "briefing": {
+    "crimeLabel": "The Crime",
+    "victimLabel": "Victim",
+    "locationLabel": "Location",
+    "timeLabel": "Time",
+    "objectiveLabel": "Investigation Objective",
+    "notFound": "This case's briefing could not be found"
+  },
+  "investigation": {
+    "recapEyebrow": "Case Reminder",
+    "evidenceEyebrow": "Investigation",
+    "roundTitle": "Round {{round}}",
+    "noClue": "No new clue right now",
+    "continueButton": "Go Discuss"
+  },
+  "discussion": {
+    "eyebrow": "Discussion Time",
+    "instruction": "All players may now freely discuss the clue before you start voting.",
+    "startButton": "Start Discussion",
+    "endEarlyButton": "End Discussion Early",
+    "timerRunningLabel": "Discussion in progress"
+  },
+  "voting": {
+    "handoffTitle": "Pass the phone to",
+    "handoffSubtitle": "Make sure no one else is looking at the screen while you vote.",
+    "readyButton": "Ready to Vote",
+    "castTitle": "Who do you think is the killer?",
+    "castSubtitle": "Choose the person you suspect the most.",
+    "submitButton": "Confirm Vote",
+    "resultsTitle": "Voting Results",
+    "votesCountLabel": "votes",
+    "mostVotedTitle": "Most Accused",
+    "continueButton": "Continue"
+  },
+  "eliminationCheck": {
+    "question": "Do you think the killer is out?",
+    "moreCluesHint": "Not sure? You can keep investigating and get a clearer clue.",
+    "noMoreCluesHint": "No more clues left — the case will close now.",
+    "yesOption": "Yes",
+    "noOption": "No, keep investigating",
+    "endOption": "Close the case"
+  },
+  "ending": {
+    "killerRevealTitle": "The Real Killer",
+    "killerRevealText": "The real killer in this case was:",
+    "whyLabel": "Why They Did It",
+    "cluesLabel": "The Clues That Proved It",
+    "clearedLabel": "Suspects Who Turned Out Innocent",
+    "playAgainButton": "Play Again",
+    "chooseAnotherCaseButton": "Choose Another Case"
+  },
+  "howToPlay": {
+    "title": "How To Play",
+    "subtitle": "Everything you need to know before starting your first case.",
+    "stepIndicator": "Step {{current}} of {{total}}",
+    "steps": {
+      "1": {
+        "title": "Pick a Case",
+        "description": "Choose the case you want to play and read through its details before you begin."
+      },
+      "2": {
+        "title": "Choose Player Count",
+        "description": "The game is played with 3 to 8 players. Pick the number that fits your group."
+      },
+      "3": {
+        "title": "Everyone Gets a Character",
+        "description": "Each player receives a secret character with their own private information. Don't reveal your role to anyone."
+      },
+      "4": {
+        "title": "Read What You Know",
+        "description": "Every character has things they know, things they're hiding, and relationships to the other characters. Pay attention to every detail."
+      },
+      "5": {
+        "title": "Start Investigating",
+        "description": "Discuss the events, question each other, and compare what you each know. Not everything will be clear right away."
+      },
+      "6": {
+        "title": "Look for Contradictions",
+        "description": "Some clues will confirm what someone said — others might reveal a contradiction or a hidden secret."
+      },
+      "7": {
+        "title": "Name a Suspect",
+        "description": "Once the investigation is over, every player picks who they think the killer is."
+      },
+      "8": {
+        "title": "Reveal the Truth",
+        "description": "At the end, you'll find out who the real killer was and see if your suspicions were right."
+      }
+    },
+    "randomNotice": {
+      "label": "Important",
+      "body": "The killer can change every time you play the same case, so never assume the same person is the killer twice."
+    },
+    "previousButton": "Previous",
+    "nextButton": "Next",
+    "finishButton": "Let's Play"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Control language, sound, and vibration.",
+    "languageSection": "Language",
+    "feedbackSection": "Sound & Feedback",
+    "soundSection": "Sound Effects",
+    "soundHint": "Small sounds that accompany the game's key moments.",
+    "musicSection": "Music",
+    "musicHint": "Background music while you play.",
+    "vibrationSection": "Vibration",
+    "vibrationHint": "A light buzz at key moments, on devices that support it.",
+    "themeSection": "Theme",
+    "themeValue": "Always Dark",
+    "themeHint": "DOSSIER is a dark, cinematic game by design.",
+    "resetButton": "Reset to Default Settings",
+    "resetConfirm": "This resets language, sound, and vibration back to default. Your roles and cases won't be affected. Continue?",
+    "resetDone": "Settings reset to default"
+  },
+  "about": {
+    "title": "About The Game",
+    "subtitle": "Information about DOSSIER",
+    "description1": "DOSSIER is a group investigation game where you and your friends live through a mysterious case and try to reach the truth.",
+    "description2": "Every case has characters, secrets, clues, and details that can change the course of the investigation.",
+    "description3": "The catch? You'll never know everything... and not everyone is telling the truth.",
+    "goalLabel": "The Goal",
+    "goalBody": "Gather information, connect the clues, spot the contradictions, and try to figure out who the killer is before the truth reveals itself.",
+    "tagline": "Choose a Case. Trust No One.",
+    "version": "Version 1.0.0"
+  }
+}

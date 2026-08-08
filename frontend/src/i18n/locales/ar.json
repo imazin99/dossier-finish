@@ -1,0 +1,203 @@
+{
+  "app": {
+    "name": "DOSSIER"
+  },
+  "nav": {
+    "cases": "القضايا",
+    "howToPlay": "إزاي تلعب",
+    "settings": "الإعدادات",
+    "about": "عن اللعبة"
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "language": "اللغة",
+    "arabic": "العربية",
+    "english": "الإنجليزية",
+    "comingSoon": "قريباً",
+    "back": "رجوع",
+    "retry": "حاول تاني",
+    "offlineBanner": "أنت أوفلاين — بتشوف قضايا محفوظة",
+    "startInvestigation": "ابدأ التحقيق"
+  },
+  "badges": {
+    "case": "ملف رقم",
+    "players": "لاعبين",
+    "minutesShort": "د",
+    "difficulty": {
+      "easy": "سهل",
+      "medium": "متوسط",
+      "hard": "صعب"
+    }
+  },
+  "home": {
+    "subtitle": "افتح ملف. لاقي الحقيقة.",
+    "sectionEyebrow": "الأرشيف",
+    "sectionTitle": "القضايا المتاحة",
+    "randomCase": {
+      "title": "قضية عشوائية",
+      "description": "سيب القدر يختار الملف الجاي",
+      "empty": "لسه مفيش قضايا متاحة دلوقتي.",
+      "error": "حصلت مشكلة والقضايا مش متاحة دلوقتي. جرب تاني."
+    }
+  },
+  "caseDetails": {
+    "category": "نوع التحقيق",
+    "story": "القصة",
+    "caseFileLabel": "ملف القضية",
+    "mission": "مهمتك",
+    "warning": "تنبيه",
+    "notFound": "الملف ده مش موجود"
+  },
+  "choosePlayers": {
+    "title": "اختاروا اللاعبين",
+    "subtitle": "مين هينضم للتحقيق ده؟",
+    "playerCountLabel": "عدد اللاعبين",
+    "playerLabel": "اللاعب {{n}}",
+    "defaultName": "اللاعب {{n}}",
+    "nameFieldLabel": "الاسم",
+    "namePlaceholder": "اكتب الاسم",
+    "validationMessage": "لازم تكتبوا اسم كل لاعب عشان تكملوا",
+    "continueButton": "كمّل"
+  },
+  "roleDistribution": {
+    "handoffTitle": "سلّم الموبايل لـ",
+    "handoffSubtitle": "بص كويس محدش يبقى شايف الشاشة غيرك.",
+    "readyButton": "أنا جاهز",
+    "finishedButton": "خلصت",
+    "characterRoleLabel": "الشخصية",
+    "relationshipToVictim": "علاقتك بالضحية",
+    "whyAtScene": "ليه كنت موجود",
+    "knownInfo": "اللي إنت عارفه",
+    "secret": "سر بتخبيه",
+    "killerTitle": "إنت القاتل",
+    "killerWarning": "حافظ على السر ده لحد الآخر. متسيبش حد يكتشف الحقيقة.",
+    "confirmationMessage": "كل اللاعبين خدوا أدوارهم.",
+    "missingSetup": "لسه ما اتعملش إعداد للاعبين"
+  },
+  "briefing": {
+    "crimeLabel": "الجريمة",
+    "victimLabel": "الضحية",
+    "locationLabel": "المكان",
+    "timeLabel": "التوقيت",
+    "objectiveLabel": "هدف التحقيق",
+    "notFound": "ملف القضية ده مش موجود"
+  },
+  "investigation": {
+    "recapEyebrow": "فاكرين القضية",
+    "evidenceEyebrow": "التحقيق",
+    "roundTitle": "الجولة {{round}}",
+    "noClue": "مفيش دليل جديد دلوقتي",
+    "continueButton": "روحوا اتناقشوا"
+  },
+  "discussion": {
+    "eyebrow": "وقت النقاش",
+    "instruction": "دلوقتي كل اللاعبين يقدروا يتناقشوا في الدليل بحرية قبل ما تبدأوا تصوّتوا.",
+    "startButton": "ابدأ النقاش",
+    "endEarlyButton": "خلصوا النقاش بدري",
+    "timerRunningLabel": "النقاش شغال"
+  },
+  "voting": {
+    "handoffTitle": "سلّم الموبايل لـ",
+    "handoffSubtitle": "بص كويس محدش يبقى شايف الشاشة وإنت بتصوّت.",
+    "readyButton": "جاهز أصوّت",
+    "castTitle": "مين في رأيك القاتل؟",
+    "castSubtitle": "اختار الشخص اللي بتشك فيه أكتر من غيره.",
+    "submitButton": "أكّد صوتك",
+    "resultsTitle": "نتيجة التصويت",
+    "votesCountLabel": "صوت",
+    "mostVotedTitle": "الأكتر اتهامًا",
+    "continueButton": "كمّلوا"
+  },
+  "eliminationCheck": {
+    "question": "هل انتم شايفين إن القاتل خرج؟",
+    "moreCluesHint": "لو مش متأكدين، ممكن تكملوا التحقيق وتاخدوا دليل تاني أوضح.",
+    "noMoreCluesHint": "مفيش أدلة تانية فاضلة — القضية هتتقفل دلوقتي.",
+    "yesOption": "نعم",
+    "noOption": "لا، نكمّل التحقيق",
+    "endOption": "اقفلوا القضية"
+  },
+  "ending": {
+    "killerRevealTitle": "القاتل الحقيقي",
+    "killerRevealText": "القاتل الحقيقي في القضية دي كان:",
+    "whyLabel": "ليه هو اللي عمل كده",
+    "cluesLabel": "الأدلة اللي أثبتت كده",
+    "clearedLabel": "المشتبه فيهم اللي طلعوا أبرياء",
+    "playAgainButton": "العبوا تاني",
+    "chooseAnotherCaseButton": "اختاروا قضية تانية"
+  },
+  "howToPlay": {
+    "title": "إزاي تلعب",
+    "subtitle": "كل اللي محتاج تعرفه عشان تبدأ أول قضية.",
+    "stepIndicator": "خطوة {{current}} من {{total}}",
+    "steps": {
+      "1": {
+        "title": "اختار القضية",
+        "description": "اختار القضية اللي عايز تلعبها واقرأ تفاصيلها كويس قبل ما تبدأ."
+      },
+      "2": {
+        "title": "اختار عدد اللاعبين",
+        "description": "اللعبة بتتلعب من 3 لـ 8 لاعبين. اختار العدد المناسب ليكم."
+      },
+      "3": {
+        "title": "كل لاعب له شخصية",
+        "description": "كل لاعب هيستلم شخصية سرية ومعلومات خاصة بيها. متوريش دورك لأي حد."
+      },
+      "4": {
+        "title": "اقرأ اللي تعرفه",
+        "description": "كل شخصية عندها معلومات بتعرفها، حاجات بتخبيها، وعلاقاتها بباقي الشخصيات. ركز في كل تفصيلة."
+      },
+      "5": {
+        "title": "ابدأ التحقيق",
+        "description": "ناقشوا الأحداث، اسألوا بعض، وقارنوا المعلومات اللي معاكم. مش كل حاجة هتكون واضحة من البداية."
+      },
+      "6": {
+        "title": "دور على التناقضات",
+        "description": "بعض الأدلة هتأكد كلام شخص، وأدلة تانية ممكن تكشف تناقض أو سر مخبي."
+      },
+      "7": {
+        "title": "حدد المشتبه فيه",
+        "description": "بعد ما تخلصوا التحقيق، كل لاعب يختار مين شايفه القاتل."
+      },
+      "8": {
+        "title": "اكشف الحقيقة",
+        "description": "في النهاية هتعرفوا مين القاتل الحقيقي وتشوفوا إذا كانت توقعاتكم صح."
+      }
+    },
+    "randomNotice": {
+      "label": "مهم",
+      "body": "القاتل ممكن يتغير في كل مرة تلعب فيها نفس القضية، فمتفترضش إن نفس الشخص هو القاتل كل مرة."
+    },
+    "previousButton": "السابق",
+    "nextButton": "التالي",
+    "finishButton": "يلا نبدأ"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "subtitle": "تحكم في اللغة والصوت والاهتزاز.",
+    "languageSection": "اللغة",
+    "feedbackSection": "الصوت والاهتزاز",
+    "soundSection": "المؤثرات الصوتية",
+    "soundHint": "أصوات صغيرة بترافق أهم لحظات اللعبة.",
+    "musicSection": "الموسيقى",
+    "musicHint": "الموسيقى الخلفية أثناء اللعب.",
+    "vibrationSection": "الاهتزاز",
+    "vibrationHint": "اهتزازة خفيفة عند اللحظات المهمة، لو جهازك بيدعمها.",
+    "themeSection": "المظهر",
+    "themeValue": "داكن دايمًا",
+    "themeHint": "DOSSIER لعبة داكنة وسينمائية بطبعها.",
+    "resetButton": "استرجاع الإعدادات الافتراضية",
+    "resetConfirm": "هيرجع اللغة والصوت والاهتزاز للوضع الافتراضي. الأدوار والقضايا مش هتتأثر. متأكد؟",
+    "resetDone": "رجعت الإعدادات للوضع الافتراضي"
+  },
+  "about": {
+    "title": "عن اللعبة",
+    "subtitle": "معلومات عن DOSSIER",
+    "description1": "DOSSIER هي لعبة تحقيق جماعية بتخليك أنت وأصحابك تعيشوا قضية غامضة وتحاولوا توصلوا للحقيقة.",
+    "description2": "كل قضية فيها شخصيات، أسرار، أدلة، وتفاصيل ممكن تغير مجرى التحقيق.",
+    "description3": "المشكلة؟ مش كل حاجة بتعرفها هتكون كاملة... ومش كل شخص بيقول الحقيقة.",
+    "goalLabel": "الهدف",
+    "goalBody": "اجمع المعلومات، اربط الأدلة، اكتشف التناقضات، وحاول تعرف مين القاتل قبل ما الحقيقة تكشف نفسها.",
+    "tagline": "Choose a Case. Trust No One.",
+    "version": "Version 1.0.0"
+  }
+}
