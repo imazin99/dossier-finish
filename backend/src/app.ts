@@ -22,10 +22,14 @@ export function createApp(): Express {
       // spec. Falling back to the Vite dev default keeps local dev
       // working out of the box; anything beyond that requires
       // CLIENT_ORIGIN to be set (see .env.example), including LAN/prod.
-      origin: process.env.CLIENT_ORIGIN?.split(",") ?? "http://localhost:5173",
-      credentials: true,
-    })
-  );
+      origin: [
+      "https://dossier-finish.vercel.app",
+      "http://localhost",
+      "https://localhost",
+    ],
+    credentials: true,
+  })
+);
   app.use(express.json());
   app.use(cookieParser());
   app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
