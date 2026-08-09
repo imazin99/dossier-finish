@@ -11,6 +11,9 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@capacitor/android": "^8.5.0",
+    "@capacitor/cli": "^8.5.0",
+    "@capacitor/core": "^8.5.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.9",
     "i18next": "^23.15.1",
