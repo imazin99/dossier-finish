@@ -1,4 +1,3 @@
-  import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Outlet, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -37,21 +36,6 @@ function isMenuRoute(pathname: string): boolean {
  * internal navigation, so keying by exact pathname here would wipe an
  * in-progress game session on every round. Those two layouts handle their
  * own finer-grained crossfades internally (see their own AnimatePresence).
- * Deliberately no `mode="wait"`: that would force the outgoing page's
- * exit animation to finish completely before the incoming page starts
- * animating in at all, turning every navigation into two back-to-back
- * animations (a real, measurable stall, worst on Android WebView) instead
- * of the overlapping crossfade pageFadeVariants' own durations (220ms in,
- * 160ms out) were written for.
- * 160ms out) were written for. Using `mode="popLayout"` rather than the
- * default (`mode="sync"`) for the same reason: plain `sync` keeps BOTH
- * the outgoing and incoming page mounted in normal document flow for the
- * whole transition — which visually reads as duplicated/repeating
- * content while scrolling, since two real pages' worth of height are in
- * the DOM at once. `popLayout` still animates both concurrently, but
- * takes the exiting page out of layout flow (position: absolute, at its
- * last measured position) the instant it starts exiting, so only the
- * incoming page ever contributes to scrollable height.
  *
  * Gated behind the initial published-cases load (see
  * context/CasesContext.tsx, now offline-first: cache first if present,
@@ -124,10 +108,10 @@ export function RootLayout() {
         )}
       </AnimatePresence>
       <main className="relative z-10 min-h-dvh overflow-x-hidden px-4 pb-28 pt-6">
-  <AnimatePresence mode="popLayout" initial={false}>
-    <Outlet key={routeGroupKey} />
-  </AnimatePresence>
-</main>
+        <AnimatePresence mode="wait" initial={false}>
+          <Outlet key={routeGroupKey} />
+        </AnimatePresence>
+      </main>
       <div className="relative z-20">
         <BottomNavigation />
       </div>
