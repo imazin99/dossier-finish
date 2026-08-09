@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Outlet, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -6,7 +7,17 @@ import { BottomNavigation } from "./BottomNavigation";
 import { SceneBackground } from "./SceneBackground";
 import { getRouteGroupKey } from "@/router/routeGroup";
 import { useCases } from "@context/CasesContext";
+import { musicManager } from "@lib/musicManager";
 import { LoadingSpinner, GlassCard, PrimaryButton } from "@components/ui";
+
+/** Menu screens where background music plays: Home, Case Details, How To
+ * Play, Settings, About. From Choose Players onward is active gameplay,
+ * where music should already have faded out (see the effect below). */
+function isMenuRoute(pathname: string): boolean {
+  const segments = pathname.split("/").filter(Boolean);
+  if (segments[0] !== "cases") return true; // /how-to-play, /settings, /about
+  return segments.length <= 2; // /cases or /cases/:caseId
+}
 
 /**
  * Shell layout for all app routes.
@@ -26,6 +37,12 @@ import { LoadingSpinner, GlassCard, PrimaryButton } from "@components/ui";
  * internal navigation, so keying by exact pathname here would wipe an
  * in-progress game session on every round. Those two layouts handle their
  * own finer-grained crossfades internally (see their own AnimatePresence).
+ * Deliberately no `mode="wait"`: that would force the outgoing page's
+ * exit animation to finish completely before the incoming page starts
+ * animating in at all, turning every navigation into two back-to-back
+ * animations (a real, measurable stall, worst on Android WebView) instead
+ * of the overlapping crossfade pageFadeVariants' own durations (220ms in,
+ * 160ms out) were written for.
  *
  * Gated behind the initial published-cases load (see
  * context/CasesContext.tsx, now offline-first: cache first if present,
@@ -39,6 +56,23 @@ export function RootLayout() {
   const routeGroupKey = getRouteGroupKey(location.pathname);
   const { isLoading, error, isOffline, refetch } = useCases();
   const { t } = useTranslation();
+
+  // Background music: play on menu screens, fade out the moment a case
+  // is actually entered (Choose Players onward). Only re-runs when the
+  // menu/game boundary is crossed, not on every sub-navigation within a
+  // game session (Investigation -> Discussion -> Voting, etc.), so it
+  // never restarts or re-fades mid-game. musicManager.play()/fadeOut()
+  // are both no-ops when already in the requested state. App-background/
+  // exit handling lives inside musicManager itself (see that file), not
+  // here, so it can't be skipped by this component unmounting.
+  const menuRoute = isMenuRoute(location.pathname);
+  useEffect(() => {
+    if (menuRoute) {
+      musicManager.play();
+    } else {
+      musicManager.fadeOut();
+    }
+  }, [menuRoute]);
 
   if (isLoading) {
     return (
@@ -81,7 +115,7 @@ export function RootLayout() {
         )}
       </AnimatePresence>
       <main className="relative z-10 min-h-dvh overflow-x-hidden px-4 pb-28 pt-6">
-        <AnimatePresence mode="wait" initial={false}>
+        <AnimatePresence initial={false}>
           <Outlet key={routeGroupKey} />
         </AnimatePresence>
       </main>

@@ -52,8 +52,11 @@ export function SceneBackground() {
         />
       </AnimatePresence>
 
-      {/* 2. Blur Layer — backdrop-filter only; the image above is never filter:blur'd itself */}
-      <div className="absolute inset-0 backdrop-blur-[12px]" />
+      {/* 2. Blur Layer — backdrop-filter only; the image above is never filter:blur'd itself.
+          translateZ(0) promotes this to its own GPU compositing layer — no visual
+          change, but keeps Android WebView from re-rasterizing this full-viewport
+          blur on every frame of the page-transition animations happening above it. */}
+      <div className="absolute inset-0 backdrop-blur-[12px]" style={{ transform: "translateZ(0)" }} />
 
       {/* 3. Dark Overlay Layer — keeps UI readable over any photo */}
       <div className="absolute inset-0 bg-black/10" />
