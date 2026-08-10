@@ -1,5 +1,6 @@
 import { RouterProvider } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { LanguageProvider } from "@context/LanguageContext";
 import { SettingsProvider } from "@context/SettingsContext";
 import { CasesProvider } from "@context/CasesContext";
@@ -14,6 +15,7 @@ export default function App() {
           <AuthProvider>
             <RouterProvider router={router} />
             <Analytics />
+            <SpeedInsights />
           </AuthProvider>
         </CasesProvider>
       </SettingsProvider>
