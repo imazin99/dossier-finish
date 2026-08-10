@@ -1,4 +1,5 @@
 import { RouterProvider } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { LanguageProvider } from "@context/LanguageContext";
 import { SettingsProvider } from "@context/SettingsContext";
 import { CasesProvider } from "@context/CasesContext";
@@ -12,6 +13,7 @@ export default function App() {
         <CasesProvider>
           <AuthProvider>
             <RouterProvider router={router} />
+            <Analytics />
           </AuthProvider>
         </CasesProvider>
       </SettingsProvider>
